@@ -1,0 +1,52 @@
+import pandas as pd
+import sqlite3
+import os
+
+dosya_yolu = '/kaggle/input/ham-data/ham_data.csv'
+
+    try:
+        df = pd.read_csv(dosya_yolu)
+
+        if len(df.columns) < 2:
+            df = pd.read_csv(dosya_yolu, sep=';')
+            
+     
+        conn = sqlite3.connect(':memory:')
+        df.to_sql('Sigorta_Tablosu', conn, index=False, if_exists='replace')
+        
+        
+        sql_sorgusu = """
+        SELECT 
+            Policy_ID,
+            City,
+            Safety_Package_Level,
+            Exposure,
+            Claim_Count,
+            Claim_Amount,
+            
+     
+            CASE 
+                WHEN Driver_Age < 25 THEN 'Genc_Riskli'
+                WHEN Driver_Age BETWEEN 25 AND 60 THEN 'Yetiskin_Standart'
+                ELSE 'Yasli_Deneyimli' 
+            END AS Driver_Segment,
+
+        
+            CASE 
+                WHEN Vehicle_Age < 3 THEN 'Yeni_Arac'
+                WHEN Vehicle_Age BETWEEN 3 AND 10 THEN 'Orta_Yas'
+                ELSE 'Eski_Arac' 
+            END AS Vehicle_Segment_Age
+
+        FROM Sigorta_Tablosu
+        WHERE Exposure > 0
+        """
+        
+
+        df_sql_result = pd.read_sql(sql_sorgusu, conn)
+        df_sql_result.to_csv('SQL_Islem_Gormus_Veri.csv', index=False)
+        
+
+
+    except Exception as e:
+        print("ERROR:", e)

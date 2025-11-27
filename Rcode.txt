@@ -1,0 +1,58 @@
+rm(list = ls())
+
+if(!require(dplyr)) install.packages("dplyr")
+if(!require(statmod)) install.packages("statmod")
+library(dplyr)
+library(statmod)
+
+file_path <- file.choose()
+
+first_line <- readLines(file_path, n = 1)
+if(grepl(";", first_line)) {
+  data <- read.csv2(file_path)
+  print("Data loaded with Semicolon separator.")
+} else {
+  data <- read.csv(file_path)
+  print("Data loaded with Comma separator.")
+}
+
+data$Safety_Package_Level <- as.factor(data$Safety_Package_Level)
+data$City <- as.factor(data$City)
+
+if("Driver_Segment" %in% names(data)) {
+  data$Driver_Segment <- as.factor(data$Driver_Segment)
+}
+if("Vehicle_Segment_Age" %in% names(data)) {
+  data$Vehicle_Segment_Age <- as.factor(data$Vehicle_Segment_Age)
+}
+
+
+freq_formula <- Claim_Count ~ Driver_Segment + City + Safety_Package_Level + offset(log(Exposure))
+model_freq <- glm(freq_formula, data = data, family = poisson(link = "log"))
+
+
+data_severity <- subset(data, Claim_Count > 0)
+
+sev_formula <- Claim_Amount ~ Safety_Package_Level 
+if("Vehicle_Segment_Age" %in% names(data)) {
+  sev_formula <- update(sev_formula, . ~ . + Vehicle_Segment_Age)
+}
+
+model_sev <- glm(sev_formula, data = data_severity, family = Gamma(link = "log"))
+
+
+data$Pred_Frequency <- predict(model_freq, data, type = "response")
+data$Pred_Severity <- predict(model_sev, data, type = "response")
+data$Risk_Premium <- data$Pred_Frequency * data$Pred_Severity
+
+
+final_columns <- c("Policy_ID", "City", "Safety_Package_Level", 
+                   "Driver_Segment", "Vehicle_Segment_Age", 
+                   "Exposure", "Claim_Count", "Claim_Amount", "Risk_Premium")
+
+
+available_cols <- intersect(final_columns, names(data))
+final_dataset <- data[, available_cols]
+
+
+write.csv(final_dataset, file.choose(new = TRUE), row.names = FALSE)
