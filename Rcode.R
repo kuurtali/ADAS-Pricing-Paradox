@@ -55,4 +55,5 @@ available_cols <- intersect(final_columns, names(data))
 final_dataset <- data[, available_cols]
 
 
+
 write.csv(final_dataset, file.choose(new = TRUE), row.names = FALSE)
