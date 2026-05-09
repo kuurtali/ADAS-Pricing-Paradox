@@ -49,6 +49,11 @@ Python (Data Generation)  →  SQL (Feature Engineering)  →  R (GLM Modeling) 
 
 ## 📊 Methodology
 
+### Train / Test Split & Validation
+The dataset was split into **80% Training (80,000 policies)** and **20% Testing (20,000 policies)** to ensure the models do not overfit.
+- **Frequency Model RMSE:** 0.313
+- **Severity Model RMSE:** 20,529 TL
+
 ### Frequency Model (Poisson GLM)
 ```
 Claim_Count ~ Safety_Package_Level + Driver_Age + Vehicle_Age 
@@ -103,6 +108,8 @@ ADAS-Pricing-Paradox/
 │   └── analysis.R                # GLM modeling + paradox analysis
 ├── outputs/
 │   ├── figures/                  # Diagnostic & paradox charts (PNG)
+│   │   ├── eda_correlation.png   # EDA: Correlation matrix
+│   │   ├── eda_distributions.png # EDA: Feature distributions
 │   │   ├── paradox_main.png      # Main paradox visualization
 │   │   ├── paradox_city.png      # City-level breakdown
 │   │   ├── freq_residuals.png    # Frequency model diagnostics
@@ -124,7 +131,7 @@ ADAS-Pricing-Paradox/
 
 ### Prerequisites
 - Python 3.x
-- R 4.x with packages: `dplyr`, `statmod`, `MASS`, `ggplot2`, `jsonlite`
+- R 4.x with packages: `dplyr`, `statmod`, `MASS`, `ggplot2`, `jsonlite`, `corrplot`, `gridExtra`
 - Power BI Desktop (optional, for interactive dashboard)
 
 ### Steps

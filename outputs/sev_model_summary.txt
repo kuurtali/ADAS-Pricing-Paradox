@@ -1,30 +1,30 @@
 
 Call:
-glm(formula = sev_formula, family = Gamma(link = "log"), data = data_sev)
+glm(formula = sev_formula, family = Gamma(link = "log"), data = train_sev)
 
 Coefficients:
                         Estimate Std. Error t value Pr(>|t|)    
-(Intercept)           10.4946513  0.0338301 310.216  < 2e-16 ***
-Safety_Package_Level1  0.1184436  0.0173166   6.840 8.43e-12 ***
-Safety_Package_Level2  0.2506498  0.0212588  11.790  < 2e-16 ***
-Vehicle_Age            0.0004899  0.0010631   0.461    0.645    
-Driver_Age             0.0004971  0.0004082   1.218    0.223    
-Vehicle_BrandFiat     -0.9148124  0.0288555 -31.703  < 2e-16 ***
-Vehicle_BrandFord     -0.6994205  0.0285987 -24.456  < 2e-16 ***
-Vehicle_BrandHonda    -0.5891254  0.0286697 -20.549  < 2e-16 ***
-Vehicle_BrandMercedes  0.1375306  0.0286284   4.804 1.58e-06 ***
-Vehicle_BrandRenault  -0.7800478  0.0287140 -27.166  < 2e-16 ***
-Vehicle_BrandToyota   -0.6847619  0.0286753 -23.880  < 2e-16 ***
-Vehicle_SegmentSedan   0.0058986  0.0185714   0.318    0.751    
-Vehicle_SegmentSUV     0.0025395  0.0185793   0.137    0.891    
+(Intercept)           10.5078010  0.0377045 278.688  < 2e-16 ***
+Safety_Package_Level1  0.1138915  0.0192646   5.912 3.53e-09 ***
+Safety_Package_Level2  0.2558499  0.0238137  10.744  < 2e-16 ***
+Vehicle_Age            0.0008097  0.0011875   0.682 0.495373    
+Driver_Age             0.0004951  0.0004555   1.087 0.277122    
+Vehicle_BrandFiat     -0.9376817  0.0322427 -29.082  < 2e-16 ***
+Vehicle_BrandFord     -0.7102261  0.0317596 -22.363  < 2e-16 ***
+Vehicle_BrandHonda    -0.5953654  0.0319952 -18.608  < 2e-16 ***
+Vehicle_BrandMercedes  0.1194875  0.0319780   3.737 0.000188 ***
+Vehicle_BrandRenault  -0.8016100  0.0321450 -24.937  < 2e-16 ***
+Vehicle_BrandToyota   -0.6862997  0.0321093 -21.374  < 2e-16 ***
+Vehicle_SegmentSedan   0.0009174  0.0206507   0.044 0.964568    
+Vehicle_SegmentSUV     0.0158277  0.0207128   0.764 0.444804    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for Gamma family taken to be 0.5256481)
+(Dispersion parameter for Gamma family taken to be 0.5211317)
 
-    Null deviance: 6632.4  on 9177  degrees of freedom
-Residual deviance: 5129.8  on 9165  degrees of freedom
-AIC: 201791
+    Null deviance: 5277.2  on 7324  degrees of freedom
+Residual deviance: 4063.6  on 7312  degrees of freedom
+AIC: 161126
 
 Number of Fisher Scoring iterations: 5
 
