@@ -5,7 +5,7 @@ if(!require(statmod)) install.packages("statmod")
 library(dplyr)
 library(statmod)
 
-file_path <- file.choose()
+file_path <- "SQL_Islem_Gormus_Veri.csv"
 
 first_line <- readLines(file_path, n = 1)
 if(grepl(";", first_line)) {
@@ -33,7 +33,7 @@ model_freq <- glm(freq_formula, data = data, family = poisson(link = "log"))
 
 data_severity <- subset(data, Claim_Count > 0)
 
-sev_formula <- Claim_Amount ~ Safety_Package_Level 
+sev_formula <- Claim_Amount ~ Safety_Package_Level
 if("Vehicle_Segment_Age" %in% names(data)) {
   sev_formula <- update(sev_formula, . ~ . + Vehicle_Segment_Age)
 }
@@ -46,8 +46,8 @@ data$Pred_Severity <- predict(model_sev, data, type = "response")
 data$Risk_Premium <- data$Pred_Frequency * data$Pred_Severity
 
 
-final_columns <- c("Policy_ID", "City", "Safety_Package_Level", 
-                   "Driver_Segment", "Vehicle_Segment_Age", 
+final_columns <- c("Policy_ID", "City", "Safety_Package_Level",
+                   "Driver_Segment", "Vehicle_Segment_Age",
                    "Exposure", "Claim_Count", "Claim_Amount", "Risk_Premium")
 
 
@@ -56,4 +56,4 @@ final_dataset <- data[, available_cols]
 
 
 
-write.csv(final_dataset, file.choose(new = TRUE), row.names = FALSE)
+write.csv(final_dataset, "R_Islem_Gormus_Veri.csv", row.names = FALSE)
