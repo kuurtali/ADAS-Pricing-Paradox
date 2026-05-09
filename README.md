@@ -25,6 +25,15 @@ This is the **ADAS Pricing Paradox**: while ADAS reduces accident frequency, the
 
 ![Paradox Visualization](outputs/figures/paradox_main.png)
 
+### Segment Insights
+
+- **Istanbul** has the highest risk premiums across all ADAS levels due to traffic density — ADAS 2 still saves ~3% here
+- **Antalya and Other (Diğer)** cities show the lowest premiums; paradox effect is proportionally similar
+- **Vehicle type** (Hatchback/Sedan/SUV) has negligible impact on the paradox — the frequency–severity trade-off is consistent across segments
+- **Driver age** does not significantly differentiate the paradox pattern (p=0.45 in frequency model)
+
+![City Breakdown](outputs/figures/paradox_city.png)
+
 ## 🛠️ Pipeline
 
 ```
@@ -58,7 +67,32 @@ Claim_Amount ~ Safety_Package_Level + Vehicle_Age + Driver_Age
 Risk_Premium = Predicted_Frequency × Predicted_Severity
 ```
 
-Model diagnostics (residual analysis, QQ-plots, overdispersion tests) are included in the R output.
+### Model Interpretation
+
+**Frequency Model** — Statistically significant predictors (p < 0.05):
+| Variable | Effect | Interpretation |
+|----------|--------|----------------|
+| `Safety_Package_Level 1` | −9.4% | Basic ADAS reduces claim frequency |
+| `Safety_Package_Level 2` | −24.1% | Advanced ADAS reduces frequency further |
+| `Vehicle_Age` | +0.9% per year | Older vehicles → more claims |
+| `NCD_Level` | −5.3% per level | Experienced drivers → fewer claims |
+| `Traffic_Density` | +15.9% per unit | Denser traffic → more claims |
+
+> `Driver_Age`, `City`, and `Vehicle_Segment` were included but not statistically significant — kept in model for theoretical relevance.
+
+**Severity Model** — Statistically significant predictors (p < 0.05):
+| Variable | Effect | Interpretation |
+|----------|--------|----------------|
+| `Safety_Package_Level 1` | +12.6% | Basic ADAS increases repair cost |
+| `Safety_Package_Level 2` | +28.5% | Advanced ADAS → expensive sensor repairs |
+| `Vehicle_Brand (BMW)` | Baseline (highest) | Premium brands cost more to repair |
+| `Vehicle_Brand (Fiat)` | −59.9% | Economy brands cost least |
+
+> `Vehicle_Age`, `Driver_Age`, and `Vehicle_Segment` were not significant in the severity model.
+
+**Overdispersion**: Pearson χ²/df = 0.98 — no overdispersion detected; Poisson is appropriate (no need for Negative Binomial).
+
+Full model summaries: [`freq_model_summary.txt`](outputs/freq_model_summary.txt) | [`sev_model_summary.txt`](outputs/sev_model_summary.txt)
 
 ## 📁 Project Structure
 
@@ -81,10 +115,6 @@ ADAS-Pricing-Paradox/
 │   ├── sev_model_summary.txt     # Severity model coefficients
 │   └── results.json              # All results (machine-readable)
 ├── ham_data.csv                  # Raw synthetic dataset (100K policies)
-├── SQL_Islem_Gormus_Veri.csv     # SQL-processed data
-├── R_Islem_Gormus_Veri.csv       # Final enriched output
-├── ADAS_Actuarial_Pricing.pbix   # Power BI dashboard
-├── Rcode.R                       # Original R script (v1)
 ├── .gitignore
 ├── LICENSE
 └── README.md
