@@ -55,20 +55,20 @@ The dataset was split into **80% Training (80,000 policies)** and **20% Testing 
 - **Severity Model RMSE:** 20,529 TL
 
 ### Frequency Model (Poisson GLM)
-```
+```r
 Claim_Count ~ Safety_Package_Level + Driver_Age + Vehicle_Age 
               + City + Vehicle_Segment + NCD_Level + Traffic_Density
               + offset(log(Exposure))
 ```
 
 ### Severity Model (Gamma GLM)
-```
+```r
 Claim_Amount ~ Safety_Package_Level + Vehicle_Age + Driver_Age
                + Vehicle_Brand + Vehicle_Segment
 ```
 
 ### Risk Premium
-```
+```r
 Risk_Premium = Predicted_Frequency × Predicted_Severity
 ```
 
