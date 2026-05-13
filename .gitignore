@@ -3,9 +3,6 @@ SQL_Islem_Gormus_Veri.csv
 R_Islem_Gormus_Veri.csv
 ham_data.csv
 
-# Power BI binary (regenerated from CSV)
-*.pbix
-
 # Debug / temporary screenshots
 outputs/pbi_*.png
 outputs/screen_now.png
