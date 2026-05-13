@@ -165,6 +165,11 @@ Synthetic insurance portfolio with **100,000 policies** and 12 features:
 | `Claim_Count` | Number of claims |
 | `Claim_Amount` | Total claim amount (TL) |
 
+## 🔗 Related Projects
+
+- **[VOL2 — ADAS Pricing Paradox (Advanced Edition)](https://github.com/kuurtali/VOL2-ADAS-Pricing-Paradox)** — Extends this analysis with 200K policies, GLM interaction terms, Gini Index, Lift Charts, and SQL-driven feature engineering.
+- **[Actuarial Risk Analysis with Shiny & GLM](https://github.com/kuurtali/actuarial-analysis-w-shiny-and-glm)** — Interactive Shiny dashboard for real-time insurance risk scoring using Logistic Regression (GLM).
+
 ## 📜 License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
