@@ -167,8 +167,12 @@ Synthetic insurance portfolio with **100,000 policies** and 12 features:
 
 ## 🔗 Related Projects
 
-- **[VOL2 — ADAS Pricing Paradox (Advanced Edition)](https://github.com/kuurtali/VOL2-ADAS-Pricing-Paradox)** — Extends this analysis with 200K policies, GLM interaction terms, Gini Index, Lift Charts, and SQL-driven feature engineering.
-- **[Actuarial Risk Analysis with Shiny & GLM](https://github.com/kuurtali/actuarial-analysis-w-shiny-and-glm)** — Interactive Shiny dashboard for real-time insurance risk scoring using Logistic Regression (GLM).
+| Project | Description |
+|---------|-------------|
+| [VOL2 — ADAS Pricing Paradox](https://github.com/kuurtali/VOL2-ADAS-Pricing-Paradox) | Extended analysis with 200K policies, GLM interaction terms, Gini Index, Lift Charts |
+| [Actuarial Shiny Dashboard](https://github.com/kuurtali/actuarial-analysis-w-shiny-and-glm) | Interactive R Shiny risk scoring with Logistic GLM (AUC 0.828) |
+| [Tubitak-2209A-MCAware](https://github.com/kuurtali/Tubitak-2209A-MCAware) | TÜBİTAK 2209-A: anti-predictive behavior in DL stock prediction on BIST |
+| [Direction Forecasting BIST-BES](https://github.com/kuurtali/direction-forecasting-bist-bes) | Academic paper: ARIMA vs LSTM vs 1D-CNN on BIST & pension funds |
 
 ## 📜 License
 
