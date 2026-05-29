@@ -7,6 +7,12 @@
   <img src="https://img.shields.io/badge/Actuarial%20Science-brightgreen?style=for-the-badge" />
 </p>
 
+<p align="center">
+  <a href="https://5pax70-mehmet0ali-kurt.shinyapps.io/adas-pricing-paradox/">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Online-brightgreen?style=for-the-badge" alt="Live Demo" />
+  </a>
+</p>
+
 **An End-to-End Actuarial Project** analyzing the trade-off between crash frequency reduction and repair cost inflation in modern vehicles equipped with Advanced Driver Assistance Systems (ADAS).
 
 > 💡 **NOTE:** This is the original Vol 1 analysis. For the advanced model with Gini Index, Lift Charts, and interaction terms, see **[VOL 2 - Advanced Edition](https://github.com/kuurtali/VOL2-ADAS-Pricing-Paradox)**.
