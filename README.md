@@ -1,10 +1,19 @@
-# 🚗 ADAS Pricing Paradox
+# 🚗 ADAS Pricing Paradox (Vol 1)
+
+<p align="center">
+  <img src="https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white" />
+  <img src="https://img.shields.io/badge/Shiny-00449E?style=for-the-badge&logo=R&logoColor=white" />
+  <img src="https://img.shields.io/badge/GLM%20Pricing-FF6F00?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Actuarial%20Science-brightgreen?style=for-the-badge" />
+</p>
 
 **An End-to-End Actuarial Project** analyzing the trade-off between crash frequency reduction and repair cost inflation in modern vehicles equipped with Advanced Driver Assistance Systems (ADAS).
 
+> 💡 **NOTE:** This is the original Vol 1 analysis. For the advanced model with Gini Index, Lift Charts, and interaction terms, see **[VOL 2 - Advanced Edition](https://github.com/kuurtali/VOL2-ADAS-Pricing-Paradox)**.
+
 ---
 
-## 📌 Research Question
+## 📌 Executive Summary
 
 > *Do ADAS-equipped vehicles actually cost less to insure — or does the rising repair cost of sensor-laden cars cancel out the safety benefit?*
 
@@ -34,10 +43,16 @@ This is the **ADAS Pricing Paradox**: while ADAS reduces accident frequency, the
 
 ![City Breakdown](outputs/figures/paradox_city.png)
 
+## 🚀 Live Interactive Pricing Engine (R Shiny)
+
+This project features a **fully interactive R Shiny application** with a Cyberpunk UI. You can test the ADAS Pricing Paradox live by changing driver parameters and instantly observing the effects on Frequency, Severity, and the Final Premium via a dynamic Waterfall chart.
+
+- **To run locally:** Open `app.R` in RStudio and click "Run App".
+
 ## 🛠️ Pipeline
 
 ```
-Python (Data Generation)  →  SQL (Feature Engineering)  →  R (GLM Modeling)  →  Power BI (Dashboard)
+Python (Data)  →  SQL (Features)  →  R (GLM Modeling)  →  R Shiny (App) & Power BI
 ```
 
 | Step | Tool | Script | Output |
