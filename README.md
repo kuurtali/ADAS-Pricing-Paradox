@@ -45,7 +45,7 @@ This is the **ADAS Pricing Paradox**: while ADAS reduces accident frequency, the
 
 ## 🚀 Live Interactive Pricing Engine (R Shiny)
 
-This project features a **fully interactive R Shiny application** with a Cyberpunk UI. You can test the ADAS Pricing Paradox live by changing driver parameters and instantly observing the effects on Frequency, Severity, and the Final Premium via a dynamic Waterfall chart.
+This project features a **fully interactive R Shiny application** with a modern dark-themed UI. You can test the ADAS Pricing Paradox live by changing driver parameters and instantly observing the effects on Frequency, Severity, and the Final Premium via a dynamic Waterfall chart.
 
 - **To run locally:** Open `app.R` in RStudio and click "Run App".
 
@@ -142,7 +142,7 @@ ADAS-Pricing-Paradox/
 └── README.md
 ```
 
-## 🚀 How to Run
+## 🔬 Reproducibility
 
 ### Prerequisites
 - Python 3.x
