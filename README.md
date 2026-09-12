@@ -142,7 +142,7 @@ ADAS-Pricing-Paradox/
 │   ├── freq_model_summary.txt    # Frequency model coefficients
 │   ├── sev_model_summary.txt     # Severity model coefficients
 │   └── results.json              # All results (machine-readable)
-├── ham_data.csv                  # Raw synthetic dataset (100K policies)
+├── ham_data.csv                  # Generated locally (100K policies; gitignored)
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -157,14 +157,14 @@ ADAS-Pricing-Paradox/
 
 ### Steps
 ```bash
-# 1. Data is already generated (ham_data.csv)
-# 2. SQL processing (if needed to regenerate)
+# 1. Generate the raw and processed synthetic data
+#    (creates ham_data.csv and SQL_Islem_Gormus_Veri.csv locally)
 python src/FirstCodeWithKaggle.py
 
-# 3. Run GLM analysis + paradox investigation
+# 2. Run GLM analysis + paradox investigation
 Rscript src/analysis.R
 
-# 4. Open Power BI dashboard (optional)
+# 3. Open Power BI dashboard (optional)
 # Open ADAS_Actuarial_Pricing.pbix in Power BI Desktop
 ```
 
@@ -193,7 +193,7 @@ Synthetic insurance portfolio with **100,000 policies** and 12 features:
 | [VOL2 — ADAS Pricing Paradox](https://github.com/kuurtali/VOL2-ADAS-Pricing-Paradox) | Extended analysis with 200K policies, GLM interaction terms, Gini Index, Lift Charts |
 | [Actuarial Shiny Dashboard](https://github.com/kuurtali/actuarial-analysis-w-shiny-and-glm) | Interactive R Shiny risk scoring with Logistic GLM (AUC 0.828) |
 | [MC-AWARE](https://github.com/kuurtali/MCAware) | Independent deep-learning research on majority-class traps and anti-predictive behavior in BIST direction forecasting |
-| [Direction Forecasting BIST-BES](https://github.com/kuurtali/direction-forecasting-bist-bes) | Academic paper: ARIMA vs LSTM vs 1D-CNN on BIST & pension funds |
+| [Direction Forecasting BIST-BES](https://github.com/kuurtali/direction-forecasting-bist-bes) | Reproducible research: ARIMA vs LSTM vs 1D-CNN on BIST & pension funds |
 
 ## 📜 License
 
