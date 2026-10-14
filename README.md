@@ -1,6 +1,9 @@
 # ADAS Pricing Paradox · Vol 1
 
-[Live demo](https://5pax70-mehmet0ali-kurt.shinyapps.io/adas-pricing-paradox/) · [Vol 2](https://github.com/kuurtali/VOL2-ADAS-Pricing-Paradox) · [Portfolio](https://github.com/kuurtali) · [Report an issue](https://github.com/kuurtali/ADAS-Pricing-Paradox/issues)
+[Portfolio](https://github.com/kuurtali) · [All projects](https://github.com/kuurtali#projects) · [Report an issue](https://github.com/kuurtali/ADAS-Pricing-Paradox/issues)
+
+
+[Live demo](https://5pax70-mehmet0ali-kurt.shinyapps.io/adas-pricing-paradox/) · [Vol 2](https://github.com/kuurtali/VOL2-ADAS-Pricing-Paradox)
 
 An actuarial pricing demonstration using a **synthetic portfolio of 100,000 policies**. Poisson and Gamma models explore how lower claim frequency and higher claim cost can offset each other.
 
